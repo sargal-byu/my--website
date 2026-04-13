@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joke Generator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    h1 {
+      color: #1e3a8a;
+    }
+
+    .setup {
+      font-size: 1.2rem;
+      color: #374151;
+      margin: 20px 0;
+    }
+
+    .punchline {
+      font-size: 1.3rem;
+      color: #2563eb;
+      font-weight: bold;
+      margin-top: 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 8px;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Joke Generator</h1>
+
+    <div class="setup" id="setup">Click "New Joke" to start!</div>
+    <div class="punchline" id="punchline"></div>
+
+    <button onclick="newJoke()">New Joke</button>
+    <button onclick="showPunchline()">Show Answer</button>
+  </div>
+
+  <script>
+    const jokes = [
+      { setup: "Why don’t scientists trust atoms?", punchline: "Because they make up everything." },
+      { setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field." },
+      { setup: "Why can’t your nose be 12 inches long?", punchline: "Because then it would be a foot." },
+      { setup: "What do you call fake spaghetti?", punchline: "An impasta." },
+      { setup: "Why did the math book look sad?", punchline: "Because it had too many problems." },
+      { setup: "What do you call cheese that isn’t yours?", punchline: "Nacho cheese." },
+      { setup: "Why did the computer go to therapy?", punchline: "It had too many bytes of trauma." },
+      { setup: "What do you call a bear with no teeth?", punchline: "A gummy bear." }
+    ];
+
+    let currentJoke = null;
+
+    function newJoke() {
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      currentJoke = jokes[randomIndex];
+
+      document.getElementById("setup").textContent = currentJoke.setup;
+      const punchlineEl = document.getElementById("punchline");
+      punchlineEl.textContent = currentJoke.punchline;
+      punchlineEl.classList.remove("show");
+    }
+
+    function showPunchline() {
+      if (currentJoke) {
+        document.getElementById("punchline").classList.add("show");
+      }
+    }
+  </script>
+</body>
+</html>
