@@ -97,34 +97,34 @@
   </div>
 
   <script>
-    const jokes = [
-      { setup: "Why don’t scientists trust atoms?", punchline: "Because they make up everything." },
-      { setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field." },
-      { setup: "Why can’t your nose be 12 inches long?", punchline: "Because then it would be a foot." },
-      { setup: "What do you call fake spaghetti?", punchline: "An impasta." },
-      { setup: "Why did the math book look sad?", punchline: "Because it had too many problems." },
-      { setup: "What do you call cheese that isn’t yours?", punchline: "Nacho cheese." },
-      { setup: "Why did the computer go to therapy?", punchline: "It had too many bytes of trauma." },
-      { setup: "What do you call a bear with no teeth?", punchline: "A gummy bear." }
-    ];
+  const jokes = [
+    { setup: "Why don’t scientists trust atoms?", punchline: "Because they make up everything." },
+    { setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field." },
+    { setup: "Why can’t your nose be 12 inches long?", punchline: "Because then it would be a foot." },
+    { setup: "What do you call fake spaghetti?", punchline: "An impasta." },
+    { setup: "Why did the math book look sad?", punchline: "Because it had too many problems." },
+    { setup: "What do you call cheese that isn’t yours?", punchline: "Nacho cheese." },
+    { setup: "Why did the computer go to therapy?", punchline: "It had too many bytes of trauma." },
+    { setup: "What do you call a bear with no teeth?", punchline: "A gummy bear." }
+  ];
 
-    let currentJoke = null;
+  let currentJoke = null;
 
-    function newJoke() {
-      const randomIndex = Math.floor(Math.random() * jokes.length);
-      currentJoke = jokes[randomIndex];
+  function newJoke() {
+    const randomIndex = Math.floor(Math.random() * jokes.length);
+    currentJoke = jokes[randomIndex];
 
-      document.getElementById("setup").textContent = currentJoke.setup;
-      const punchlineEl = document.getElementById("punchline");
-      punchlineEl.textContent = currentJoke.punchline;
-      punchlineEl.classList.remove("show");
+    document.getElementById("setup").textContent = currentJoke.setup;
+    const punchlineEl = document.getElementById("punchline");
+    punchlineEl.textContent = currentJoke.punchline;
+    punchlineEl.classList.remove("show");
+  }
+
+  function showPunchline() {
+    if (currentJoke) {
+      document.getElementById("punchline").classList.add("show");
     }
-
-    function showPunchline() {
-      if (currentJoke) {
-        document.getElementById("punchline").classList.add("show");
-      }
-    }
-  </script>
+  }
+</script>
 </body>
 </html>
